@@ -1,6 +1,8 @@
 import 'dart:async';
 import 'dart:convert';
+
 import 'package:http/http.dart' as http;
+import 'package:translator_app/models/TranslatedModel.dart';
 
 abstract class Repo {
   Future<List<Sentence>> getTranslated(String target, String query);
@@ -16,11 +18,12 @@ class TranslateRepo extends Repo {
 
   Map<String, String> header = {
     'Content-Type': 'application/x-www-form-urlencoded',
-    'User-Agent': 'AndroidTranslate/5.3.0.RC02.130475354-53000263 5.1 phone TRANSLATE_OPM5_TEST_1',
+    'User-Agent':
+        'AndroidTranslate/5.3.0.RC02.130475354-53000263 5.1 phone TRANSLATE_OPM5_TEST_1',
   };
 
   @override
-  Future<List<Sentence>> getTranslated(String target, String query) async{
+  Future<List<Sentence>> getTranslated(String target, String query) async {
     var client = http.Client();
     Map<String, dynamic> body = {'sl': 'en', 'tl': target, 'q': query};
     try {
@@ -34,45 +37,15 @@ class TranslateRepo extends Repo {
         var data = json.decode(response);
         var rest = data['sentences'] as List;
 
-        var list = rest.map<Sentence>((json) => Sentence.fromJson(json)).toList();
+        var list =
+            rest.map<Sentence>((json) => Sentence.fromJson(json)).toList();
 
         return list;
       } else {
         throw Exception('Failed to load post');
       }
-    }finally {
+    } finally {
       client.close();
     }
   }
 }
-
-class Translate {
-  Sentence sentences;
-  String dict;
-  String src;
-
-  Translate({this.sentences, this.dict, this.src});
-
-  factory Translate.fromJson(Map<String, dynamic> json) {
-    return Translate(
-      sentences: Sentence.fromJson(json['sentences']),
-      dict: json['dict'],
-      src: json['src']
-    );
-  }
-}
-
-class Sentence {
-  String trans;
-  String orig;
-
-  Sentence({this.trans, this.orig});
-
-  factory Sentence.fromJson(Map<String, dynamic> json){
-    return Sentence(
-      trans: json['trans'],
-      orig: json['orig']
-    );
-  }
-}
-

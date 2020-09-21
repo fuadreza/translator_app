@@ -1,5 +1,4 @@
-
-import 'package:translator_app/services/translate_repo.dart';
+import 'package:translator_app/models/TranslatedModel.dart';
 
 abstract class TranslateState {}
 

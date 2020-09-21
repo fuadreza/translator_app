@@ -6,6 +6,8 @@ import 'package:translator_app/bloc/translate_event.dart';
 import 'package:translator_app/bloc/translate_state.dart';
 import 'package:translator_app/services/translate_repo.dart';
 
+import 'models/TranslatedModel.dart';
+
 /*This App Created by Fuad Reza Pahlevi*/
 
 void main() {

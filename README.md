@@ -1,16 +1,32 @@
-# translator_app
+# Overview
 
-A new Flutter application.
+This is translator application that run on Android Device. Created using [flutter](https://github.com/flutter/flutter) in Android Studio. 
 
-## Getting Started
+## Source Language
 
-This project is a starting point for a Flutter application.
+English ('en')
 
-A few resources to get you started if this is your first Flutter project:
+## Targeted Language
 
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
+Indonesia ('id')
 
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+## How to deploy
+
+Open and install package file .apk at
+
+```bash
+\build\app\outputs\apk\release
+```
+
+These are 3 packages that generated from Android Studio build, you can install it based on your system architecture.
+
+```bash
+<app dir>/build/app/outputs/apk/release/app-armeabi-v7a-release.apk
+<app dir>/build/app/outputs/apk/release/app-arm64-v8a-release.apk
+<app dir>/build/app/outputs/apk/release/app-x86_64-release.apk
+```
+
+## Contributing
+Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
+
+Please make sure to update tests as appropriate.
