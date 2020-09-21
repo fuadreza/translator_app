@@ -1,6 +1,6 @@
 # Overview
 
-This is translator application that run on Android Device. Created using [flutter](https://github.com/flutter/flutter) in Android Studio. 
+This is translator application that run on Android Device. Created using [flutter library](https://github.com/flutter/flutter) in with Dart Programming Language Android Studio.
 
 ## Source Language
 
